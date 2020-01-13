@@ -3,6 +3,9 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <Authors>Viraj</Authors>
+    <PackageProjectUrl>https://github.com/viraj2252/WebAdvert.AdvertApi</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/viraj2252/WebAdvert.AdvertApi</RepositoryUrl>
   </PropertyGroup>
 
 </Project>
