@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <Folder Include="Services\" />
+    <Folder Include="HealthChecks\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="AdvertApi.Models\AdvertApi.Models.csproj">
@@ -16,5 +17,6 @@
   <ItemGroup>
     <PackageReference Include="AWSSDK.DynamoDBv2" Version="3.3.104.17" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.HealthChecks" Version="1.0.0" />
   </ItemGroup>
 </Project>

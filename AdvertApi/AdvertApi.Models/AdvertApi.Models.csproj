@@ -4,6 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <Authors>Viraj</Authors>
+    <PackageId>VJAdvertApi.Models</PackageId>
+    <Version>1.0.0</Version>
+    <Company>None</Company>
     <PackageProjectUrl>https://github.com/viraj2252/WebAdvert.AdvertApi</PackageProjectUrl>
     <RepositoryUrl>https://github.com/viraj2252/WebAdvert.AdvertApi</RepositoryUrl>
   </PropertyGroup>
