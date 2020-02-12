@@ -1,0 +1,14 @@
+version: 0.0
+os: windows
+files:
+  - source: AdvertApi
+    destination: C:\inetpub\wwwroot
+hooks:
+  BeforeInstall:
+    - location: stopsite.bat
+      timeout: 300
+      runas: Administrator
+  AfterInstall:
+    - location: startsite.bat
+      timeout: 300
+      runas: Administrator

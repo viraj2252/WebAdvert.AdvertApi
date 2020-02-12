@@ -5,15 +5,19 @@ using AutoMapper;
 using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.DataModel;
 using System.Collections.Generic;
+using Amazon;
 
 namespace AdvertApi.Services
 {
     public class DynamoDBAdvertStorage : IAdvertStorageService
     {
         private readonly IMapper _mapper;
+        private readonly RegionEndpoint _region;
+
         public DynamoDBAdvertStorage(IMapper mapper)
         {
             _mapper = mapper;
+            _region = Amazon.RegionEndpoint.APSoutheast2;
         }
 
         public async Task<string> Add(AdvertModel model)
@@ -24,7 +28,7 @@ namespace AdvertApi.Services
             dbModel.CreationDateTime = DateTime.UtcNow;
             dbModel.Status = AdvertStatus.Pending;
 
-            using (var client = new AmazonDynamoDBClient())
+            using (var client = new AmazonDynamoDBClient(_region))
             {
                 using (var context = new DynamoDBContext(client))
                 {
@@ -37,7 +41,7 @@ namespace AdvertApi.Services
 
         public async Task<bool> CheckHealthAsync()
         {
-            using (var client = new AmazonDynamoDBClient())
+            using (var client = new AmazonDynamoDBClient(_region))
             {
                 var tableData = await client.DescribeTableAsync("Adverts");
                 return tableData.Table.TableStatus == "active";
@@ -46,7 +50,7 @@ namespace AdvertApi.Services
 
         public async Task<bool> Confirm(ConfirmAdvertModel model)
         {
-            using (var client = new AmazonDynamoDBClient())
+            using (var client = new AmazonDynamoDBClient(new AmazonDynamoDBConfig{}))
             {
                 using (var context = new DynamoDBContext(client))
                 {
